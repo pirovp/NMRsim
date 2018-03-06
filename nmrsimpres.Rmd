@@ -1,0 +1,57 @@
+---
+title: "NMR multiplet simulator"
+author: "Paolo Pirovano"
+date: "6 March 2018"
+output: slidy_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+knitr::opts_chunk$set(fig.width=10, fig.height=3) 
+load("figures.Rdata")
+source("scripts/plotters.R")
+library(ggplot2)
+```
+
+## What is this app about?
+
+- A Shiny app to simulate the fine structure in NMR spectra
+- This has got nothing to do with statistics or data science
+- I had it half-done already from a personal project
+
+## So, um, what's an NMR?
+
+- No need to worry, just take it as a squiggly line generator
+- https://en.wikipedia.org/wiki/Nuclear_magnetic_resonance_spectroscopy
+- https://en.wikipedia.org/wiki/J-coupling
+
+
+Why would I want it?
+
+- Chemistry/physics homework maybe?
+
+## How do I use it?
+
+Input your list of nuclides in the table
+
+      - I = nuclear magnetic moment (0.5, 1, 1.5, ...)
+      
+      - J = Coupling constant (whatever you want)
+      
+      - n = number of equivalent nuclides (positive integer)
+
+
+Enjoy!
+
+``` {r}
+plotSpec(figures[[1]])
+```
+
+## Line broadening
+
+We get finite linewidth with a gaussian convolution (?) of the spectral lines.
+You can select the broadening with the slider.
+
+``` {r}
+plotSpecLb(figures[[2]])
+```
