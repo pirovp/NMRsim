@@ -4,12 +4,23 @@ source("scripts/plotters.R")
 source("scripts/lbroad.R")
 
 server <- function(input, output) {
-      nucs <- data.frame(I = c(.5, 1), J = c(7, 20), n = c(2,1))
+      nucs <- data.frame(I = c(.5, .5), J = c(14, 6), n = c(2L,1L))
+      nucs[nrow(nucs) + 3,] <- NA
+      spectra <- reactive({
+            nucs <- hot_to_r(input$hot)
+            nucs <- nucs[which(complete.cases(nucs)),]
+            simspec(nucs, lb = input$lb)
+            })
+      
       ## Handsontable
-      #observe({nucs  <- hot_to_r(input$nucs)})
-      output$text <- renderText(paste("Line broadening of ", input$lb, "Hz (Gaussian):"))
-      spectra <- reactive(simspec(nucs, lb = input$lb))
-      output$nucs <- renderRHandsontable(rhandsontable(nucs, stretchH = "all"))
-      #output$lineplot <- renderPlot(plotSpec(spectra()[[1]]))
+      nuchot <-
+            rhandsontable(nucs, readOnly = F) %>% 
+            hot_col("I", type = "dropdown", source = seq(0.5, 5, 0.5))
+            
+            
+      output$hot <- renderRHandsontable(nuchot)
+      
       output$lbplot <- renderPlot(plotSpecLb(spectra()[[2]]))
+
+      output$text <- renderText(paste("Line broadening of ", input$lb, "Hz (Gaussian):"))
 }

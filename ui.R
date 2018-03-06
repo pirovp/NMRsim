@@ -7,7 +7,10 @@ ui <- fluidPage(
       # Sidebar with input
       sidebarLayout(
             sidebarPanel(
-                  rHandsontableOutput("nucs"),
+                  p("Insert your list of nuclides; I must be half integer
+                    (0.5, 1, 1.5, ...) and n integer; right click to add/remove
+                    rows."),
+                  rHandsontableOutput("hot"),
                   br(),
                   br(),
                   sliderInput("lb",

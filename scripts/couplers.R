@@ -10,6 +10,7 @@ couple <- function (start = data.frame(x = 0, y = 1), I = .5, J = 1) {
 }
 
 couplen <- function (spectrum = data.frame(x = 0, y = 1), n = 1, I = .5, J = 1) {
+      if (n == 0) return(spectrum)
       for (i in 1:n) {
             spectrum <- couple(spectrum, I, J)
             i = i + 1
