@@ -6,8 +6,8 @@ output: slidy_presentation
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE)
-knitr::opts_chunk$set(fig.width=10, fig.height=3) 
+knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(fig.width=10, fig.height=2) 
 load("figures.Rdata")
 source("scripts/plotters.R")
 library(ggplot2)
@@ -41,7 +41,8 @@ Input your list of nuclides in the table
       - n = number of equivalent nuclides (positive integer)
 
 
-Enjoy!
+
+Enjoy! (r code for the figures was sourced in header)
 
 ``` {r}
 plotSpec(figures[[1]])
@@ -52,6 +53,7 @@ plotSpec(figures[[1]])
 We get finite linewidth with a gaussian convolution (?) of the spectral lines.
 You can select the broadening with the slider.
 
-``` {r}
+``` {r, echo = FALSE}
+plotSpec(figures[[1]])
 plotSpecLb(figures[[2]])
 ```
