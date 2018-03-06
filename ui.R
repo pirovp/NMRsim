@@ -1,21 +1,28 @@
+library(rhandsontable)
+
 ui <- fluidPage(
       
-      # Application title
-      titlePanel("Old Faithful Geyser Data"),
+      titlePanel("NMR multiplet simulator"),
       
-      # Sidebar with a slider input for number of bins 
+      # Sidebar with input
       sidebarLayout(
             sidebarPanel(
-                  sliderInput("bins",
-                             "Number of bins:",
-                              min = 1,
-                              max = 50,
-                              value = 30)
+                  rHandsontableOutput("nucs"),
+                  br(),
+                  br(),
+                  sliderInput("lb",
+                             "Line broadening (Hz):",
+                              min = 0.1,
+                              max = 10,
+                              value = 1)
             ),
             
-            # Show a plot of the generated distribution
             mainPanel(
-                  plotOutput("distPlot")
+                  p(textOutput("text")),
+                  plotOutput("lbplot")#,
+                  #p("Infinitely sharp peaks:"),
+                  #plotOutput("lineplot"),
+                  #br()
             )
       )
 )
