@@ -1,8 +1,8 @@
 lbroad <- function (spectrum, lb = .2) {
       
       npoints = 2048
-      specmin <- 1.5*spectrum$x[1] - 0.5*spectrum$x[nrow(spectrum)]
-      specmax <- 1.5*spectrum$x[nrow(spectrum)] - 0.5*spectrum$x[1]
+      specmin <- 1.3*spectrum$x[1] - 0.3*spectrum$x[nrow(spectrum)]
+      specmax <- 1.3*spectrum$x[nrow(spectrum)] - 0.3*spectrum$x[1]
       specrange <- seq(from = specmin, to = specmax, length.out = npoints)
       lb_spec <- data.frame(x = specrange, y = rep(0, npoints))
       
