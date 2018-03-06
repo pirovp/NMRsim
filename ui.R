@@ -12,7 +12,6 @@ ui <- fluidPage(
                     rows."),
                   rHandsontableOutput("hot"),
                   br(),
-                  br(),
                   sliderInput("lb",
                              "Line broadening (Hz):",
                               min = 0.1,

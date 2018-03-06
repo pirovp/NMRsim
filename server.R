@@ -14,7 +14,7 @@ server <- function(input, output) {
       
       ## Handsontable
       nuchot <-
-            rhandsontable(nucs, readOnly = F) %>% 
+            rhandsontable(nucs, readOnly = FALSE, height = 200, stretchH = "all") %>% 
             hot_col("I", type = "dropdown", source = seq(0.5, 5, 0.5))
             
             
