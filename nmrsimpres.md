@@ -2,19 +2,10 @@
 title: "NMR multiplet simulator"
 author: "Paolo Pirovano"
 date: "6 March 2018"
-#output: slidy_presentation
+output: slidy_presentation
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-knitr::opts_chunk$set(fig.width=10, fig.height=2) 
-load("figures.Rdata")
-source("scripts/plotters.R")
-source("scripts/couplers.R")
-source("scripts/lbroad.R")
-source("scripts/nmrsim1.R")
-library(ggplot2)
-```
+
 
 ## What is this app about?
 
@@ -43,7 +34,8 @@ Input your list of nuclides in the table
 - J = Coupling constant (whatever you want)
 - n = number of equivalent nuclides (positive integer)
 
-``` {r}
+
+```r
 simspec <- function(nuclides, lb = 1) {
       spectrum <- data.frame(x = 0, y = 1)
       for (i in 1:nrow(nuclides)) {
@@ -60,18 +52,18 @@ simspec <- function(nuclides, lb = 1) {
 
 ## Example simulation
 
-``` {r}
+
+```r
 nuclides <-  data.frame(I = c(.5, 1), J = c(7, 20), n = c(3,1))
 spectrum <- simspec(nuclides)
 plotSpec(spectrum[[1]])
 ```
+
+![plot of chunk unnamed-chunk-2](assets/fig/unnamed-chunk-2-1.png)
 
 ## Line broadening
 
 We get finite linewidth with a gaussian convolution (?) of the spectral lines.
 You can select the broadening with the slider.
 
-``` {r, echo = FALSE}
-plotSpec(figures[[1]])
-plotSpecLb(figures[[2]])
-```
+![plot of chunk unnamed-chunk-3](assets/fig/unnamed-chunk-3-1.png)![plot of chunk unnamed-chunk-3](assets/fig/unnamed-chunk-3-2.png)
