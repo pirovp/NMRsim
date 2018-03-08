@@ -20,11 +20,17 @@ ui <- fluidPage(
             ),
             
             mainPanel(
-                  p(textOutput("text")),
-                  plotOutput("lbplot")#,
-                  #p("Infinitely sharp peaks:"),
-                  #plotOutput("lineplot"),
-                  #br()
+                  tabsetPanel(
+                        tabPanel(
+                              "Plot",
+                              p(textOutput("text")),
+                              plotOutput("lbplot")
+                        ),
+                        tabPanel(
+                              "Documentation"#,
+                              #includeHTML("documentation.html")
+                        )
+                  )
             )
       )
 )

@@ -7,8 +7,8 @@ plotSpec <- function(spectrum) {
                   name = NULL
             ) +
             scale_x_continuous(limits = c(
-                  1.2 * spectrum$x[1] - 0.2 * spectrum$x[nrow(spectrum)],
-                  1.2 * spectrum$x[nrow(spectrum)] - 0.2 * spectrum$x[1]
+                  1.3 * spectrum$x[1] - 0.3 * spectrum$x[nrow(spectrum)],
+                  1.3 * spectrum$x[nrow(spectrum)] - 0.3 * spectrum$x[1]
             )) +
       xlab("delta freq. (Hz)") +
             geom_segment(aes(
