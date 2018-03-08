@@ -27,8 +27,8 @@ ui <- fluidPage(
                               plotOutput("lbplot")
                         ),
                         tabPanel(
-                              "Documentation"#,
-                              #includeHTML("documentation.html")
+                              "Documentation",
+                              includeHTML("documentation.html")
                         )
                   )
             )
