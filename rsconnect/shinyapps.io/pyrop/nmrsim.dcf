@@ -5,6 +5,9 @@ account: pyrop
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 293870
-bundleId: 1254219
+bundleId: 1259345
 url: https://pyrop.shinyapps.io/nmrsim/
-when: 1520300751.06776
+when: 1520522432.71246
+asMultiple: FALSE
+asStatic: FALSE
+ignoredFiles: assignment.html|assignment.Rmd|documentation.md|figures.Rdata|nmrsimpres.Rmd|README.md
